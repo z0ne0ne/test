@@ -17,6 +17,14 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_SECRET }}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Get tag
+      id: tag
+      uses: dawidd6/action-get-tag@v1
+      with:
+        # Optionally strip `v` prefix
+        strip_v: true
+    - name: Use tag
+      run: echo ${{steps.tag.outputs.tag}}
     - name: Build the Docker image
       run: docker build . -t z0ne0ne/test:${{tag}}
     - name: docker push
