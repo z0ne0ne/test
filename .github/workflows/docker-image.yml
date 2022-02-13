@@ -26,7 +26,7 @@ jobs:
     - name: Use tag
       run: echo ${{steps.tag.outputs.tag}}
     - name: Build the Docker image
-      run: docker build . -t z0ne0ne/test:${{steps.tag.outputs.tag}}
+      run: docker build . -t z0ne0ne/test:latest
     - name: docker push
       run: |
-        docker push z0ne0ne/test:${{steps.tag.outputs.tag}}
+        docker push z0ne0ne/test:latest
