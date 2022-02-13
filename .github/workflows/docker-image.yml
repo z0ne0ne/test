@@ -24,4 +24,4 @@ jobs:
       run: docker build . --file Dockerfile -t test
     - name: docker push
       run: |
-        docker push test:latest
+        docker push z0ne0ne/test:latest
