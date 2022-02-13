@@ -18,7 +18,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . -t z0ne0ne/test:{tag}
+      run: docker build . -t z0ne0ne/test:${{tag}}
     - name: docker push
       run: |
-        docker push z0ne0ne/test:{tag}
+        docker push z0ne0ne/test:${{tag}}
