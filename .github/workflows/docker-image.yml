@@ -21,7 +21,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $date
+      run: docker build . --file Dockerfile --tag 1.2
     - name: docker push
       run: |
-        docker push z0ne0ne/test:$date
+        docker push z0ne0ne/test:1.2
