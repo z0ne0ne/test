@@ -14,5 +14,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Docker Hub login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKERHUB_USER }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_SECRET }}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
